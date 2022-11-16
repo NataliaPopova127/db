@@ -1,0 +1,410 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TradeModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Order">
+    <Key>
+      <PropertyRef Name="OrderID" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" />
+    <Property Name="OrderOrderDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderDeliveryDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="OrderPickupPointId" Type="Int32" Nullable="false" />
+    <Property Name="OrderUserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderUserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderUserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="OrderKey" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="OrderPickupPoint" Relationship="Self.FK_Order_OrderPickupPoint" FromRole="Order" ToRole="OrderPickupPoint" />
+    <NavigationProperty Name="OrderStatus" Relationship="Self.FK_Order_OrderStatus1" FromRole="Order" ToRole="OrderStatus" />
+    <NavigationProperty Name="Product" Relationship="Self.OrderProduct" FromRole="Order" ToRole="Product" />
+    <NavigationProperty Name="User" Relationship="Self.OrderUser" FromRole="Order" ToRole="User" />
+  </EntityType>
+  <EntityType Name="OrderPickupPoint">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_OrderPickupPoint" FromRole="OrderPickupPoint" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="OrderStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Value" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="Order" Relationship="Self.FK_Order_OrderStatus1" FromRole="OrderStatus" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductArticleNumber" />
+    </Key>
+    <Property Name="ProductArticleNumber" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductName" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProductCost" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ProductDiscountAmount" Type="Byte" />
+    <Property Name="ProductMaxDiscountAmount" Type="Int32" />
+    <Property Name="ProductQuantityInStock" Type="Int32" Nullable="false" />
+    <Property Name="ProductStatusId" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="ProductStatus" Relationship="Self.FK_Product_ProductStatus" FromRole="Product" ToRole="ProductStatus" />
+    <NavigationProperty Name="Order" Relationship="Self.OrderProduct" FromRole="Product" ToRole="Order" />
+    <Property Name="ProductCategoryId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProductCategory" Relationship="TradeModel.FK_Product_ProductCategory" FromRole="Product" ToRole="ProductCategory" />
+    <Property Name="ProductManufacturerId" Type="Int32" Nullable="false" />
+    <Property Name="ProductUnitId" Type="Int32" Nullable="false" />
+    <Property Name="ProductProviderId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="ProductManufacter" Relationship="TradeModel.FK_Product_ProductManufacter" FromRole="Product" ToRole="ProductManufacter" />
+    <NavigationProperty Name="ProductProvider" Relationship="TradeModel.FK_Product_ProductProvider" FromRole="Product" ToRole="ProductProvider" />
+    <NavigationProperty Name="ProductUnit" Relationship="TradeModel.FK_Product_ProductUnit" FromRole="Product" ToRole="ProductUnit" />
+    <Property Name="ProductPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductStatus">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product" Relationship="Self.FK_Product_ProductStatus" FromRole="ProductStatus" ToRole="Product" />
+    <Property Name="StatusValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleID" />
+    </Key>
+    <Property Name="RoleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="User" Relationship="Self.FK__User__UserRole__1273C1CD" FromRole="Role" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserRole" Type="Int32" Nullable="false" />
+    <Property Name="IsDeleted" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Role" Relationship="Self.FK__User__UserRole__1273C1CD" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="Order" Relationship="Self.OrderUser" FromRole="User" ToRole="Order" />
+  </EntityType>
+  <EntityType Name="isNotDeletedUsers">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="UserSurname" />
+      <PropertyRef Name="UserName" />
+      <PropertyRef Name="UserPatronymic" />
+      <PropertyRef Name="UserLogin" />
+      <PropertyRef Name="UserPassword" />
+      <PropertyRef Name="RoleName" />
+    </Key>
+    <Property Name="UserId" Type="Int32" Nullable="false" />
+    <Property Name="UserSurname" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPatronymic" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserLogin" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserPassword" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="RoleName" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Order_OrderPickupPoint">
+    <End Role="OrderPickupPoint" Type="Self.OrderPickupPoint" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderPickupPoint">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderPickupPointId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Order_OrderStatus1">
+    <End Role="OrderStatus" Type="Self.OrderStatus" Multiplicity="1" />
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Order">
+        <PropertyRef Name="OrderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductStatus">
+    <End Role="ProductStatus" Type="Self.ProductStatus" Multiplicity="1" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductStatus">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__User__UserRole__1273C1CD">
+    <End Role="Role" Type="Self.Role" Multiplicity="1" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="UserRole" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="OrderProduct">
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Role="Product" Type="Self.Product" Multiplicity="*" />
+  </Association>
+  <Association Name="OrderUser">
+    <End Role="Order" Type="Self.Order" Multiplicity="*" />
+    <End Role="User" Type="Self.User" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="TradeEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Order" EntityType="Self.Order" />
+    <EntitySet Name="OrderPickupPoint" EntityType="Self.OrderPickupPoint" />
+    <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
+    <EntitySet Name="Product" EntityType="Self.Product" />
+    <EntitySet Name="ProductStatus" EntityType="Self.ProductStatus" />
+    <EntitySet Name="Role" EntityType="Self.Role" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+    <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="isNotDeletedUsers" EntityType="Self.isNotDeletedUsers" />
+    <AssociationSet Name="FK_Order_OrderPickupPoint" Association="Self.FK_Order_OrderPickupPoint">
+      <End Role="OrderPickupPoint" EntitySet="OrderPickupPoint" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Order_OrderStatus1" Association="Self.FK_Order_OrderStatus1">
+      <End Role="OrderStatus" EntitySet="OrderStatus" />
+      <End Role="Order" EntitySet="Order" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductStatus" Association="Self.FK_Product_ProductStatus">
+      <End Role="ProductStatus" EntitySet="ProductStatus" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK__User__UserRole__1273C1CD" Association="Self.FK__User__UserRole__1273C1CD">
+      <End Role="Role" EntitySet="Role" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="OrderProduct" Association="Self.OrderProduct">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="OrderUser" Association="Self.OrderUser">
+      <End Role="Order" EntitySet="Order" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <FunctionImport Name="AddUser">
+      <Parameter Name="UserSurname" Mode="In" Type="String" />
+      <Parameter Name="UserName" Mode="In" Type="String" />
+      <Parameter Name="UserPatronymic" Mode="In" Type="String" />
+      <Parameter Name="UserLogin" Mode="In" Type="String" />
+      <Parameter Name="UserPassword" Mode="In" Type="String" />
+      <Parameter Name="UserRole" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(TradeModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(TradeModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="ProductCategory" EntityType="TradeModel.ProductCategory" />
+    <AssociationSet Name="FK_Product_ProductCategory" Association="TradeModel.FK_Product_ProductCategory">
+      <End Role="ProductCategory" EntitySet="ProductCategory" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <EntitySet Name="ProductManufacter" EntityType="TradeModel.ProductManufacter" />
+    <EntitySet Name="ProductProvider" EntityType="TradeModel.ProductProvider" />
+    <EntitySet Name="ProductUnit" EntityType="TradeModel.ProductUnit" />
+    <AssociationSet Name="FK_Product_ProductManufacter" Association="TradeModel.FK_Product_ProductManufacter">
+      <End Role="ProductManufacter" EntitySet="ProductManufacter" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductProvider" Association="TradeModel.FK_Product_ProductProvider">
+      <End Role="ProductProvider" EntitySet="ProductProvider" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_ProductUnit" Association="TradeModel.FK_Product_ProductUnit">
+      <End Role="ProductUnit" EntitySet="ProductUnit" />
+      <End Role="Product" EntitySet="Product" />
+    </AssociationSet>
+    <EntitySet Name="ProductListForManagerAndClient" EntityType="TradeModel.ProductListForManagerAndClient" />
+    <FunctionImport Name="AddProduct">
+      <Parameter Name="ProductArticul" Mode="In" Type="String" />
+      <Parameter Name="ProductName" Mode="In" Type="String" />
+      <Parameter Name="ProductDescription" Mode="In" Type="String" />
+      <Parameter Name="ProductCategory" Mode="In" Type="String" />
+      <Parameter Name="ProductPhoto" Mode="In" Type="String" />
+      <Parameter Name="ProductManufacturer" Mode="In" Type="String" />
+      <Parameter Name="ProductCost" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductDiscountAmount" Mode="In" Type="Byte" />
+      <Parameter Name="ProductMaxDiscountAmount" Mode="In" Type="Int32" />
+      <Parameter Name="ProductQuantityInStock" Mode="In" Type="Int32" />
+      <Parameter Name="ProductStatus" Mode="In" Type="String" />
+      <Parameter Name="ProductUnit" Mode="In" Type="String" />
+      <Parameter Name="ProductProvider" Mode="In" Type="String" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="EditProduct">
+      <Parameter Name="ProductArticul" Mode="In" Type="String" />
+      <Parameter Name="ProductName" Mode="In" Type="String" />
+      <Parameter Name="ProductDescription" Mode="In" Type="String" />
+      <Parameter Name="ProductCategory" Mode="In" Type="String" />
+      <Parameter Name="ProductPhoto" Mode="In" Type="String" />
+      <Parameter Name="ProductManufacturer" Mode="In" Type="String" />
+      <Parameter Name="ProductCost" Mode="In" Type="Decimal" />
+      <Parameter Name="ProductDiscountAmount" Mode="In" Type="Byte" />
+      <Parameter Name="ProductMaxDiscountAmount" Mode="In" Type="Int32" />
+      <Parameter Name="ProductQuantityInStock" Mode="In" Type="Int32" />
+      <Parameter Name="ProductStatus" Mode="In" Type="String" />
+      <Parameter Name="ProductUnit" Mode="In" Type="String" />
+      <Parameter Name="ProductProvider" Mode="In" Type="String" />
+      <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product" Relationship="TradeModel.FK_Product_ProductCategory" FromRole="ProductCategory" ToRole="Product" />
+    <Property Name="CategoryValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Product_ProductCategory">
+    <End Type="TradeModel.ProductCategory" Role="ProductCategory" Multiplicity="1" />
+    <End Type="TradeModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductCategory">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductManufacter">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product" Relationship="TradeModel.FK_Product_ProductManufacter" FromRole="ProductManufacter" ToRole="Product" />
+    <Property Name="ManufacterValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductProvider">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product" Relationship="TradeModel.FK_Product_ProductProvider" FromRole="ProductProvider" ToRole="Product" />
+    <Property Name="ProviderValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ProductUnit">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <NavigationProperty Name="Product" Relationship="TradeModel.FK_Product_ProductUnit" FromRole="ProductUnit" ToRole="Product" />
+    <Property Name="UnitValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Product_ProductManufacter">
+    <End Type="TradeModel.ProductManufacter" Role="ProductManufacter" Multiplicity="1" />
+    <End Type="TradeModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductManufacter">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductManufacturerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductProvider">
+    <End Type="TradeModel.ProductProvider" Role="ProductProvider" Multiplicity="1" />
+    <End Type="TradeModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductProvider">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductProviderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_ProductUnit">
+    <End Type="TradeModel.ProductUnit" Role="ProductUnit" Multiplicity="1" />
+    <End Type="TradeModel.Product" Role="Product" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ProductUnit">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Product">
+        <PropertyRef Name="ProductUnitId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductListForManagerAndClient">
+    <Key>
+      <PropertyRef Name="ProductName" />
+      <PropertyRef Name="ProductDescription" />
+      <PropertyRef Name="ManufacterValue" />
+      <PropertyRef Name="StatusValue" />
+      <PropertyRef Name="ProductCost" />
+    </Key>
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ManufacterValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="StatusValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="ProductPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+</Schema>
