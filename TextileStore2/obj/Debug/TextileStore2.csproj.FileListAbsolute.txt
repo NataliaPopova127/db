@@ -23,13 +23,7 @@ D:\RusDB\TextileStore2\TextileStore2\bin\Debug\EntityFramework.SqlServer.dll
 D:\RusDB\TextileStore2\TextileStore2\bin\Debug\EntityFramework.xml
 D:\RusDB\TextileStore2\TextileStore2\bin\Debug\EntityFramework.SqlServer.xml
 D:\RusDB\TextileStore2\TextileStore2\bin\Debug\ru\EntityFramework.resources.dll
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminAddProductPage.g.cs
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminDeleteProductPage.g.cs
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminEditProductPage.g.cs
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\TextileStore2_Content.g.cs
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminAddProductPage.baml
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminDeleteProductPage.baml
-D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\Admin\AdminEditProductPage.baml
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\TextileStore2.csproj.CopyComplete
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\ViewProductListPage.g.cs
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\ViewProductListPage.baml

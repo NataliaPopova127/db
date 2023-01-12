@@ -163,6 +163,11 @@
             <PropertyRef Name="ManufacterValue" />
             <PropertyRef Name="StatusValue" />
             <PropertyRef Name="ProductCost" />
+            <PropertyRef Name="ProductArticleNumber" />
+            <PropertyRef Name="CategoryValue" />
+            <PropertyRef Name="ProviderValue" />
+            <PropertyRef Name="UnitValue" />
+            <PropertyRef Name="ProductQuantityInStock" />
           </Key>
           <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
           <Property Name="ProductDescription" Type="nvarchar(max)" Nullable="false" />
@@ -170,6 +175,13 @@
           <Property Name="ManufacterValue" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="StatusValue" Type="nvarchar" MaxLength="50" Nullable="false" />
           <Property Name="ProductCost" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="ProductArticleNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="CategoryValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProviderValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="UnitValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ProductDiscountAmount" Type="tinyint" />
+          <Property Name="ProductMaxDiscountAmount" Type="int" />
+          <Property Name="ProductQuantityInStock" Type="int" Nullable="false" />
         </EntityType>
         <Association Name="FK__OrderProd__Order__1920BF5C">
           <End Role="Order" Type="Self.Order" Multiplicity="1" />
@@ -419,7 +431,14 @@
     [ProductListForManagerAndClient].[ProductPhoto] AS [ProductPhoto], 
     [ProductListForManagerAndClient].[ManufacterValue] AS [ManufacterValue], 
     [ProductListForManagerAndClient].[StatusValue] AS [StatusValue], 
-    [ProductListForManagerAndClient].[ProductCost] AS [ProductCost]
+    [ProductListForManagerAndClient].[ProductCost] AS [ProductCost], 
+    [ProductListForManagerAndClient].[ProductArticleNumber] AS [ProductArticleNumber], 
+    [ProductListForManagerAndClient].[CategoryValue] AS [CategoryValue], 
+    [ProductListForManagerAndClient].[ProviderValue] AS [ProviderValue], 
+    [ProductListForManagerAndClient].[UnitValue] AS [UnitValue], 
+    [ProductListForManagerAndClient].[ProductDiscountAmount] AS [ProductDiscountAmount], 
+    [ProductListForManagerAndClient].[ProductMaxDiscountAmount] AS [ProductMaxDiscountAmount], 
+    [ProductListForManagerAndClient].[ProductQuantityInStock] AS [ProductQuantityInStock]
     FROM [dbo].[ProductListForManagerAndClient] AS [ProductListForManagerAndClient]</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="FK__OrderProd__Order__1920BF5C" Association="Self.FK__OrderProd__Order__1920BF5C">
@@ -874,6 +893,11 @@
             <PropertyRef Name="ManufacterValue" />
             <PropertyRef Name="StatusValue" />
             <PropertyRef Name="ProductCost" />
+            <PropertyRef Name="ProductArticleNumber" />
+            <PropertyRef Name="CategoryValue" />
+            <PropertyRef Name="ProviderValue" />
+            <PropertyRef Name="UnitValue" />
+            <PropertyRef Name="ProductQuantityInStock" />
           </Key>
           <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -881,6 +905,13 @@
           <Property Name="StatusValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="ProductCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
           <Property Name="ProductPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductArticleNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="CategoryValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProviderValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="UnitValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ProductDiscountAmount" Type="Byte" />
+          <Property Name="ProductMaxDiscountAmount" Type="Int32" />
+          <Property Name="ProductQuantityInStock" Type="Int32" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -1070,6 +1101,13 @@
           <EntitySetMapping Name="ProductListForManagerAndClient">
             <EntityTypeMapping TypeName="TradeModel.ProductListForManagerAndClient">
               <MappingFragment StoreEntitySet="ProductListForManagerAndClient">
+                <ScalarProperty Name="ProductQuantityInStock" ColumnName="ProductQuantityInStock" />
+                <ScalarProperty Name="ProductMaxDiscountAmount" ColumnName="ProductMaxDiscountAmount" />
+                <ScalarProperty Name="ProductDiscountAmount" ColumnName="ProductDiscountAmount" />
+                <ScalarProperty Name="UnitValue" ColumnName="UnitValue" />
+                <ScalarProperty Name="ProviderValue" ColumnName="ProviderValue" />
+                <ScalarProperty Name="CategoryValue" ColumnName="CategoryValue" />
+                <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
                 <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
                 <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
                 <ScalarProperty Name="StatusValue" ColumnName="StatusValue" />

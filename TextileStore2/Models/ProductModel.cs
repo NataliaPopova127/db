@@ -17,6 +17,13 @@ namespace TextileStore2.Models
         public string ProductCost { get; set; }
         public string ProductStatus { get; set; }
         public string BackGround { get; set; }
+        public string ProductArticul { get; set; }
+        public string ProductUnit { get; set; }
+        public string ProductCategory { get; set; }
+        public string ProductProvider { get; set; }
+        public byte? ProductDiscount { get; set; }
+        public int? ProductMaxDiscount { get; set; }
+        public int ProductQuantityInStock { get; set; }
         public static ProductModel ProductFromDB(ProductListForManagerAndClient context)
         {
             if (context.StatusValue.ToString() == "нет в наличии")
@@ -24,7 +31,7 @@ namespace TextileStore2.Models
                 _color = Colors.LightGray;
             }
             else _color = Colors.White;
-            
+
             return new ProductModel()
             {
                 Img = string.IsNullOrWhiteSpace(context.ProductPhoto)
@@ -35,7 +42,15 @@ namespace TextileStore2.Models
                 ProductManufacturer = context.ManufacterValue,
                 ProductCost = context.ProductCost.ToString(),
                 ProductStatus = context.StatusValue.ToString(),
-                BackGround = _color.ToString()
+                BackGround = _color.ToString(),
+                ProductArticul = context.ProductArticleNumber,
+                ProductCategory = context.CategoryValue,
+                ProductProvider = context.ProviderValue,
+                ProductUnit = context.UnitValue,
+                ProductDiscount = context.ProductDiscountAmount,
+                ProductMaxDiscount = context.ProductMaxDiscountAmount,
+                ProductQuantityInStock = context.ProductQuantityInStock,
+                ImagePath = context.ProductPhoto
             };
         }    
     }

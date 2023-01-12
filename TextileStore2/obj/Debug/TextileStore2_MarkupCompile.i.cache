@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 D:\RusDB\TextileStore2\TextileStore2\App.xaml
-121095217095
+9-1776877803
 2-753324877
-37-1507088461
+34-954749226
 192133560314
-Assets\Dictionaries\ColorDictionary.xaml;Assets\Dictionaries\StyleDictionary.xaml;View\Pages\Admin\AdminAddProductPage.xaml;View\Pages\Admin\AdminDeleteProductPage.xaml;View\Pages\Admin\AdminEditProductPage.xaml;View\Pages\ViewProductListPage.xaml;View\Windows\AdminWindow.xaml;View\Windows\Admin\AdminAddProductWindow.xaml;View\Windows\Admin\AdminEditProductWindow.xaml;View\Windows\AuthorizationWindow.xaml;View\Windows\ClientWindow.xaml;View\Windows\ManagerWindow.xaml;
+Assets\Dictionaries\ColorDictionary.xaml;Assets\Dictionaries\StyleDictionary.xaml;View\Pages\ViewProductListPage.xaml;View\Windows\AdminWindow.xaml;View\Windows\Admin\AdminAddProductWindow.xaml;View\Windows\Admin\AdminEditProductWindow.xaml;View\Windows\AuthorizationWindow.xaml;View\Windows\ClientWindow.xaml;View\Windows\ManagerWindow.xaml;
 
 True
 

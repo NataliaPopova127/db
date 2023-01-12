@@ -20,5 +20,12 @@ namespace TextileStore2.Models.Entities
         public string StatusValue { get; set; }
         public decimal ProductCost { get; set; }
         public string ProductPhoto { get; set; }
+        public string ProductArticleNumber { get; set; }
+        public string CategoryValue { get; set; }
+        public string ProviderValue { get; set; }
+        public string UnitValue { get; set; }
+        public Nullable<byte> ProductDiscountAmount { get; set; }
+        public Nullable<int> ProductMaxDiscountAmount { get; set; }
+        public int ProductQuantityInStock { get; set; }
     }
 }

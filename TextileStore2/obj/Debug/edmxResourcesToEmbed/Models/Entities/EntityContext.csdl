@@ -399,6 +399,11 @@
       <PropertyRef Name="ManufacterValue" />
       <PropertyRef Name="StatusValue" />
       <PropertyRef Name="ProductCost" />
+      <PropertyRef Name="ProductArticleNumber" />
+      <PropertyRef Name="CategoryValue" />
+      <PropertyRef Name="ProviderValue" />
+      <PropertyRef Name="UnitValue" />
+      <PropertyRef Name="ProductQuantityInStock" />
     </Key>
     <Property Name="ProductName" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
     <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
@@ -406,5 +411,12 @@
     <Property Name="StatusValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
     <Property Name="ProductCost" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
     <Property Name="ProductPhoto" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductArticleNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="CategoryValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProviderValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="UnitValue" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductDiscountAmount" Type="Byte" />
+    <Property Name="ProductMaxDiscountAmount" Type="Int32" />
+    <Property Name="ProductQuantityInStock" Type="Int32" Nullable="false" />
   </EntityType>
 </Schema>

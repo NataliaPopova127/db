@@ -30,9 +30,7 @@
                    Margin="0 0 20 0" FontSize="15"/>
 
         <StackPanel Grid.Column="0" Margin="10" Grid.Row="1"  Grid.RowSpan="2">
-            <Button Content="Редактировать товары" x:Name="btnEditProduct" Click="btnEditProduct_Click"/>
-            <Button Content="Добавить товары" x:Name="btnAddProduct" Click="btnAddProduct_Click"/>
-            <Button Content="Удалить товары" x:Name="btnDeleteProduct" Click="btnDeleteProduct_Click"/>
+            <Button Content="Добавить товар" x:Name="btnAddProduct" Click="btnAddProduct_Click"/>
         </StackPanel>
 
         <Button Content="Выйти" Grid.Column="0" Grid.Row="2" Height="30" Width="100" 
@@ -62,7 +60,8 @@
         </StackPanel>
         
         <ListView x:Name="lvProductList" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" 
-                  SelectionChanged="lvProductList_SelectionChanged">
+                  SelectionChanged="lvProductList_SelectionChanged"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <Grid>

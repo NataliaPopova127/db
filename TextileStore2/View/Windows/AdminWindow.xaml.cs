@@ -15,7 +15,6 @@ using System.Windows.Shapes;
 using TextileStore2.Core;
 using TextileStore2.Models;
 using TextileStore2.Models.Entities;
-using TextileStore2.View.Pages.Admin;
 using TextileStore2.View.Windows.Admin;
 
 namespace TextileStore.View.Windows
@@ -55,20 +54,12 @@ namespace TextileStore.View.Windows
             };
         }
 
-        private void btnEditProduct_Click(object sender, RoutedEventArgs e)
-        {
-            new AdminEditProductWindow().Show();
-        }
 
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             new AdminAddProductWindow().Show();
         }
 
-        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
-        {
-           
-        }
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
         {
             new AuthorizationWindow().Show();
@@ -87,10 +78,16 @@ namespace TextileStore.View.Windows
                     AdminEditProductWindow.Cost = Convert.ToDecimal(product.ProductCost);
                     AdminEditProductWindow.Manufacter = product.ProductManufacturer;
                     AdminEditProductWindow.Status = product.ProductStatus;
+                    AdminEditProductWindow.Articul = product.ProductArticul;
+                    AdminEditProductWindow.Category = product.ProductCategory;
+                    AdminEditProductWindow.Discount = product.ProductDiscount;
+                    AdminEditProductWindow.MaxDiscount = product.ProductMaxDiscount;
+                    AdminEditProductWindow.Provider = product.ProductProvider;
+                    AdminEditProductWindow.Unit = product.ProductUnit;
+                    AdminEditProductWindow.QuantityInStock = product.ProductQuantityInStock;
+                    AdminEditProductWindow.Image = product.ImagePath;
                 }
             }
-            
-            
             new AdminEditProductWindow().Show();
         }
         private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -154,6 +151,5 @@ namespace TextileStore.View.Windows
 
         }
 
-        
     }
 }

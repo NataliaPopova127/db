@@ -131,15 +131,6 @@
       <DependentUpon>EntityContext.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ProductModel.cs" />
-    <Compile Include="View\Pages\Admin\AdminAddProductPage.xaml.cs">
-      <DependentUpon>AdminAddProductPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Admin\AdminDeleteProductPage.xaml.cs">
-      <DependentUpon>AdminDeleteProductPage.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="View\Pages\Admin\AdminEditProductPage.xaml.cs">
-      <DependentUpon>AdminEditProductPage.xaml</DependentUpon>
-    </Compile>
     <Compile Include="View\Pages\ViewProductListPage.xaml.cs">
       <DependentUpon>ViewProductListPage.xaml</DependentUpon>
     </Compile>
@@ -170,18 +161,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Assets\Dictionaries\StyleDictionary.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Admin\AdminAddProductPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Admin\AdminDeleteProductPage.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="View\Pages\Admin\AdminEditProductPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -282,9 +261,6 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="View\Pages\Client\" />
-    <Folder Include="View\Pages\Manager\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -23,6 +23,7 @@ namespace TextileStore2.View.Windows.Admin
     public partial class AdminEditProductWindow : Window
     {
         public static string ImagePath { get; set; }
+        public static string Image { get; set; }
         public static string Description { get; set; }
         public static string Name { get; set; }
         public static string Articul { get; set; }
@@ -32,9 +33,9 @@ namespace TextileStore2.View.Windows.Admin
         public static string Unit { get; set; }
         public static string Status { get; set; }
         public static decimal Cost { get; set; }
-        public static byte Discount { get; set; }
-        public static int MaxDiscount { get; set; }
-        public static int QuantityInStock { get; set; }
+        public static byte? Discount { get; set; }
+        public static int? MaxDiscount { get; set; }
+        public static int? QuantityInStock { get; set; }
         public AdminEditProductWindow()
         {
             InitializeComponent();
@@ -78,26 +79,26 @@ namespace TextileStore2.View.Windows.Admin
                     listStatus.Add(s.StatusValue);
                 }
                 cbStatus.ItemsSource = listStatus;
-
-                foreach (var a in tradeEntities.Product)
-                {
-                    listArticul.Add(a.ProductArticleNumber);
-                }
-                cbArticul.ItemsSource = listArticul;
             };
-            tbCost.Text = Cost.ToString();
             tbDescription.Text = Description;
             tbName.Text = Name;
             cbManufacter.SelectedItem = Manufacter;
-            cbManufacter.Text = Manufacter;
             cbStatus.SelectedItem = Status;
-            cbStatus.Text = Status;
+            tbArticul.Text = Articul;
+            tbCost.Text = Cost.ToString();
+            tbDiscount.Text = Discount.ToString();
+            tbMaxDiscount.Text = MaxDiscount.ToString();
+            tbQuantityInStock.Text = QuantityInStock.ToString();
+            cbProvider.SelectedItem = Provider;
+            cbUnit.SelectedItem = Unit;
+            cbCategory.SelectedItem = Category;
+            ImagePath = Image;
         }
         private void btnEditNewProduct_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (InputDataValidator.ValidateValueAddNewProduct(cbArticul.Text, tbName.Text,
+                if (InputDataValidator.ValidateValueAddNewProduct(tbArticul.Text, tbName.Text,
                    tbDescription.Text, cbCategory.Text, cbManufacter.Text,
                    Convert.ToDouble(tbCost.Text), Convert.ToDouble(tbDiscount.Text),
                    Convert.ToDouble(tbMaxDiscount.Text), Convert.ToInt32(tbQuantityInStock.Text),
@@ -105,7 +106,7 @@ namespace TextileStore2.View.Windows.Admin
                 {
                     using (TradeEntities context = new TradeEntities())
                     {
-                        context.EditProduct(cbArticul.Text, tbName.Text,
+                        context.EditProduct(tbArticul.Text, tbName.Text,
                            tbDescription.Text, cbCategory.Text, ImagePath, cbManufacter.Text,
                            Convert.ToDecimal(tbCost.Text), Convert.ToByte(tbDiscount.Text),
                            Convert.ToInt32(tbMaxDiscount.Text), Convert.ToInt32(tbQuantityInStock.Text),
@@ -137,13 +138,18 @@ namespace TextileStore2.View.Windows.Admin
             string destFile =
                 System.IO.Path.Combine("Images/", ImagePath);
             System.IO.File.Copy(openFileDialog.FileName, destFile, true);
-
-
+           
         }
 
-        public static void EditProductForm()
+        private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-
+            using (TradeEntities context = new TradeEntities())
+            {
+                var product = context.Product.FirstOrDefault(p => p.ProductArticleNumber == tbArticul.Text);
+                context.Product.Remove(product);
+                context.SaveChanges();
+                MessageBox.Show("Запись удалена");
+            }
         }
     }
 }

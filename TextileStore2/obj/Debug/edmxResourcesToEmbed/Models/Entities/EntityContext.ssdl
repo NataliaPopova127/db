@@ -158,6 +158,11 @@
       <PropertyRef Name="ManufacterValue" />
       <PropertyRef Name="StatusValue" />
       <PropertyRef Name="ProductCost" />
+      <PropertyRef Name="ProductArticleNumber" />
+      <PropertyRef Name="CategoryValue" />
+      <PropertyRef Name="ProviderValue" />
+      <PropertyRef Name="UnitValue" />
+      <PropertyRef Name="ProductQuantityInStock" />
     </Key>
     <Property Name="ProductName" Type="nvarchar(max)" Nullable="false" />
     <Property Name="ProductDescription" Type="nvarchar(max)" Nullable="false" />
@@ -165,6 +170,13 @@
     <Property Name="ManufacterValue" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="StatusValue" Type="nvarchar" MaxLength="50" Nullable="false" />
     <Property Name="ProductCost" Type="decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="ProductArticleNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+    <Property Name="CategoryValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProviderValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="UnitValue" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProductDiscountAmount" Type="tinyint" />
+    <Property Name="ProductMaxDiscountAmount" Type="int" />
+    <Property Name="ProductQuantityInStock" Type="int" Nullable="false" />
   </EntityType>
   <Association Name="FK__OrderProd__Order__1920BF5C">
     <End Role="Order" Type="Self.Order" Multiplicity="1" />
@@ -414,7 +426,14 @@
     [ProductListForManagerAndClient].[ProductPhoto] AS [ProductPhoto], 
     [ProductListForManagerAndClient].[ManufacterValue] AS [ManufacterValue], 
     [ProductListForManagerAndClient].[StatusValue] AS [StatusValue], 
-    [ProductListForManagerAndClient].[ProductCost] AS [ProductCost]
+    [ProductListForManagerAndClient].[ProductCost] AS [ProductCost], 
+    [ProductListForManagerAndClient].[ProductArticleNumber] AS [ProductArticleNumber], 
+    [ProductListForManagerAndClient].[CategoryValue] AS [CategoryValue], 
+    [ProductListForManagerAndClient].[ProviderValue] AS [ProviderValue], 
+    [ProductListForManagerAndClient].[UnitValue] AS [UnitValue], 
+    [ProductListForManagerAndClient].[ProductDiscountAmount] AS [ProductDiscountAmount], 
+    [ProductListForManagerAndClient].[ProductMaxDiscountAmount] AS [ProductMaxDiscountAmount], 
+    [ProductListForManagerAndClient].[ProductQuantityInStock] AS [ProductQuantityInStock]
     FROM [dbo].[ProductListForManagerAndClient] AS [ProductListForManagerAndClient]</DefiningQuery>
     </EntitySet>
     <AssociationSet Name="FK__OrderProd__Order__1920BF5C" Association="Self.FK__OrderProd__Order__1920BF5C">

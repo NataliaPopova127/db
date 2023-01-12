@@ -183,6 +183,13 @@
     <EntitySetMapping Name="ProductListForManagerAndClient">
       <EntityTypeMapping TypeName="TradeModel.ProductListForManagerAndClient">
         <MappingFragment StoreEntitySet="ProductListForManagerAndClient">
+          <ScalarProperty Name="ProductQuantityInStock" ColumnName="ProductQuantityInStock" />
+          <ScalarProperty Name="ProductMaxDiscountAmount" ColumnName="ProductMaxDiscountAmount" />
+          <ScalarProperty Name="ProductDiscountAmount" ColumnName="ProductDiscountAmount" />
+          <ScalarProperty Name="UnitValue" ColumnName="UnitValue" />
+          <ScalarProperty Name="ProviderValue" ColumnName="ProviderValue" />
+          <ScalarProperty Name="CategoryValue" ColumnName="CategoryValue" />
+          <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
           <ScalarProperty Name="ProductPhoto" ColumnName="ProductPhoto" />
           <ScalarProperty Name="ProductCost" ColumnName="ProductCost" />
           <ScalarProperty Name="StatusValue" ColumnName="StatusValue" />
