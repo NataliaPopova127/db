@@ -25,8 +25,8 @@ namespace TextileStore.View.Windows
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            imgLogotype.Source = new BitmapImage(new Uri("pack://application:,,,/Assets/Images/logo.png"));
-            Icon = new BitmapImage(new Uri("pack://application:,,,/Assets/Images/icon.ico"));
+            Icon = new BitmapImage(new Uri("pack://application:,,,/bin/Debug/Images/icon.ico"));
+            imgLogotype.Source = new BitmapImage(new Uri("pack://application:,,,/bin/Debug/Images/logo.png"));
             tbFullName.Text = tbFullName.Text = UserValidator.User.UserSurname + " " + UserValidator.User.UserName; ;
         }
 

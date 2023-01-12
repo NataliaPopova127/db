@@ -5,34 +5,92 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextileStore.View.Windows"
         mc:Ignorable="d"
-        Title="Окно администратора" Height="550" Width="930">
+        Title="Окно администратора" Height="550" Width="1050"
+        WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="120"/>
         </Grid.ColumnDefinitions>
 
         <Image x:Name="imgLogotype" Grid.Column="0" Grid.Row="0" Margin="0 0 0 10"/>
         
-        <Border Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Right"
+        <Border Grid.Column="0" Grid.RowSpan="2" Grid.Row="1" HorizontalAlignment="Right"
                 Background="{StaticResource emphasizing}" Width="2"/>
         
-        <TextBlock x:Name="tbFullName" Text="Fullname" HorizontalAlignment="Right" Grid.Column="1"
+        <TextBlock x:Name="tbFullName" Text="Fullname" HorizontalAlignment="Right" Grid.Column="3"
                    Margin="0 0 20 0" FontSize="15"/>
-        
-        <StackPanel Grid.Column="0" Margin="10" Grid.Row="1">
+
+        <StackPanel Grid.Column="0" Margin="10" Grid.Row="1"  Grid.RowSpan="2">
             <Button Content="Редактировать товары" x:Name="btnEditProduct" Click="btnEditProduct_Click"/>
             <Button Content="Добавить товары" x:Name="btnAddProduct" Click="btnAddProduct_Click"/>
             <Button Content="Удалить товары" x:Name="btnDeleteProduct" Click="btnDeleteProduct_Click"/>
         </StackPanel>
 
-        <Button Content="Выйти" Grid.Column="0" Grid.Row="1" Height="30" Width="100" 
+        <Button Content="Выйти" Grid.Column="0" Grid.Row="2" Height="30" Width="100" 
                 HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="10" x:Name="btnSignOut" Click="btnSignOut_Click"/>
 
-        <Frame Grid.Column="1" x:Name="mainFrame" Grid.Row="1" NavigationUIVisibility="Hidden"/>
+        <StackPanel Grid.Row="1" Grid.Column="3" Orientation="Horizontal">
+            <TextBlock Text="Найти" Margin="10 10 10 0"/>
+            <TextBox x:Name="tbFind" Width="150" Height="25" TextChanged="tbFind_TextChanged"/>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1">
+            <TextBlock Text="Отфильтровать по  " Margin="0 10 0 0"/>
+            <ComboBox Width="100" Height="25" x:Name="cbFilter" SelectionChanged="cbOrderBy_SelectionChanged">
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" Grid.Column="2" Grid.Row="1">
+            <TextBlock Text="Сортировать по  " Margin="0 10 0 0"/>
+            <ComboBox Width="100" Height="25" x:Name="cbOrderBy" SelectionChanged="cbOrderBy_SelectionChanged">
+                <TextBlock Text="убыванию"/>
+                <TextBlock Text="возрастанию"/>
+            </ComboBox>
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="4" Orientation="Horizontal">
+            <TextBlock Text="Найдено: " Margin="10 10 10 0" x:Name="tbCount"/>
+        </StackPanel>
+        
+        <ListView x:Name="lvProductList" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="4" 
+                  SelectionChanged="lvProductList_SelectionChanged">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"/>
+                            <ColumnDefinition Width="400"/>
+                            <ColumnDefinition/>
+                        </Grid.ColumnDefinitions>
+
+                        <Border Grid.Column="0" Background="{Binding BackGround}">
+                            <Image Margin="10 0 10 10" Stretch="Fill" Source="{Binding Img}"/>
+                        </Border>
+                        <Border Grid.Column="1"  Background="{Binding BackGround}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding ProductName}" FontWeight="Bold"/>
+                                <TextBlock Text="{Binding ProductDescription}" TextWrapping="Wrap"/>
+                                <TextBlock Text="{Binding ProductManufacturer}"/>
+                                <TextBlock Text="{Binding ProductCost}"/>
+                                <TextBlock Text=" "/>
+                            </StackPanel>
+                        </Border>
+                        <Border Grid.Column="2"  Background="{Binding BackGround}" Width="300">
+                            <TextBlock Text="{Binding ProductStatus}" TextAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
     </Grid>
 </Window>

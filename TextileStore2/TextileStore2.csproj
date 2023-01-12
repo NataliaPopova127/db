@@ -146,6 +146,12 @@
     <Compile Include="View\Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Windows\Admin\AdminAddProductWindow.xaml.cs">
+      <DependentUpon>AdminAddProductWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Windows\Admin\AdminEditProductWindow.xaml.cs">
+      <DependentUpon>AdminEditProductWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\Windows\AuthorizationWindow.xaml.cs">
       <DependentUpon>AuthorizationWindow.xaml</DependentUpon>
     </Compile>
@@ -186,6 +192,14 @@
     <Page Include="View\Windows\AdminWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="View\Windows\Admin\AdminAddProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Windows\Admin\AdminEditProductWindow.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\Windows\AuthorizationWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -235,19 +249,25 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Assets\Images\picture.png" />
-    <Resource Include="Assets\Images\B111C5.jpeg" />
-    <Resource Include="Assets\Images\E112C6.jpg" />
-    <Resource Include="Assets\Images\K839K3.jpg" />
-    <Resource Include="Assets\Images\L293S9.jpg" />
-    <Resource Include="Assets\Images\M112C8.jpg" />
-    <Resource Include="Assets\Images\M294G9.jpg" />
-    <Resource Include="Assets\Images\M398S9.jpg" />
-    <Resource Include="Assets\Images\N283K3.jpg" />
-    <Resource Include="Assets\Images\S384K2.jpg" />
-    <Resource Include="Assets\Images\T238C7.jpg" />
-    <Resource Include="Assets\Images\icon.ico" />
-    <Resource Include="Assets\Images\logo.png" />
+    <Resource Include="bin\Debug\Images\1000-6a644ce227955c852ec2d27c78fda96e.jpg" />
+    <Resource Include="bin\Debug\Images\andrei-chizh-priroda-leto-podmoskove-reka-berega-derevia-tum.jpg" />
+    <Resource Include="bin\Debug\Images\B111C5.jpeg" />
+    <Resource Include="bin\Debug\Images\BackImageMountains.jpg" />
+    <Resource Include="bin\Debug\Images\E112C6.jpg" />
+    <Resource Include="bin\Debug\Images\icon.ico" />
+    <Resource Include="bin\Debug\Images\interer-komnata-kvartira-2943.jpg" />
+    <Resource Include="bin\Debug\Images\K839K3.jpg" />
+    <Resource Include="bin\Debug\Images\L293S9.jpg" />
+    <Resource Include="bin\Debug\Images\logo.png" />
+    <Resource Include="bin\Debug\Images\M112C8.jpg" />
+    <Resource Include="bin\Debug\Images\M294G9.jpg" />
+    <Resource Include="bin\Debug\Images\M398S9.jpg" />
+    <Resource Include="bin\Debug\Images\N283K3.jpg" />
+    <Resource Include="bin\Debug\Images\picture.png" />
+    <Resource Include="bin\Debug\Images\rWpcq5iI6IA.jpg" />
+    <Resource Include="bin\Debug\Images\S384K2.jpg" />
+    <Resource Include="bin\Debug\Images\T238C7.jpg" />
+    <Resource Include="bin\Debug\Images\хзфон.jpg" />
     <Content Include="Models\Entities\EntityContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EntityContext.edmx</DependentUpon>

@@ -36,4 +36,8 @@ D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Pages\ViewProductListPage.ba
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\Assets\Dictionaries\ColorDictionary.baml
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\Assets\Dictionaries\StyleDictionary.baml
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\App.baml
+D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Windows\Admin\AdminAddProductWindow.g.cs
+D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Windows\Admin\AdminAddProductWindow.baml
 D:\RusDB\TextileStore2\TextileStore2\obj\Debug\TextileStore2.csproj.AssemblyReference.cache
+D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Windows\Admin\AdminEditProductWindow.g.cs
+D:\RusDB\TextileStore2\TextileStore2\obj\Debug\View\Windows\Admin\AdminEditProductWindow.baml

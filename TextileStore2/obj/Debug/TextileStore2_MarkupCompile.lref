@@ -5,7 +5,9 @@ FD:\RusDB\TextileStore2\TextileStore2\View\Pages\Admin\AdminDeleteProductPage.xa
 FD:\RusDB\TextileStore2\TextileStore2\View\Pages\Admin\AdminEditProductPage.xaml;;
 FD:\RusDB\TextileStore2\TextileStore2\View\Pages\ViewProductListPage.xaml;;
 FD:\RusDB\TextileStore2\TextileStore2\View\Windows\AdminWindow.xaml;;
+FD:\RusDB\TextileStore2\TextileStore2\View\Windows\Admin\AdminAddProductWindow.xaml;;
 FD:\RusDB\TextileStore2\TextileStore2\View\Windows\AuthorizationWindow.xaml;;
 FD:\RusDB\TextileStore2\TextileStore2\View\Windows\ClientWindow.xaml;;
 FD:\RusDB\TextileStore2\TextileStore2\View\Windows\ManagerWindow.xaml;;
+FD:\RusDB\TextileStore2\TextileStore2\View\Windows\Admin\AdminEditProductWindow.xaml;;
 

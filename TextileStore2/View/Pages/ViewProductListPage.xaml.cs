@@ -24,6 +24,7 @@ namespace TextileStore2.View.Pages
     public partial class ViewProductListPage : Page
     {
         public ObservableCollection<ProductModel> productModels = new ObservableCollection<ProductModel>();
+        public int Count { get; set; }
         public ViewProductListPage()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace TextileStore2.View.Pages
                 foreach (var p in tradeEntities.ProductListForManagerAndClient)
                 {
                     productModels.Add(ProductModel.ProductFromDB(p));
+                    Count++;
                 }
                 lvProductList.ItemsSource = productModels.ToList();
 
@@ -42,6 +44,7 @@ namespace TextileStore2.View.Pages
                     listManufacter.Add(m.ManufacterValue);
                 }
                 cbFilter.ItemsSource = listManufacter;
+                tbCount.Text = $"Найдено: {Count}/{Count}";
             };
            
         }
@@ -80,14 +83,31 @@ namespace TextileStore2.View.Pages
                 }
                 else
                 {
-                    lvProductList.ItemsSource = productModels.ToList();
+                    lvProductList.ItemsSource = productModels.Where(m =>
+                    m.ProductManufacturer == cbFilter.SelectedItem.ToString()).ToList();
                 }
             }
         }
 
         private void tbFind_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            int count = 0;
+            productModels.Clear();
+            using (TradeEntities tradeEntities = new TradeEntities())
+            {
+                foreach (var p in tradeEntities.ProductListForManagerAndClient)
+                {
+                    if(p.ProductDescription.Contains(tbFind.Text) || p.ProductName.Contains(tbFind.Text))
+                    {
+                        productModels.Add(ProductModel.ProductFromDB(p));
+                        count++;
+                    }
+                       
+                }
+                lvProductList.ItemsSource = productModels.ToList();
+                tbCount.Text = $"Найдено: {count}/{Count}";
+            }
+           
         }
     }
 }

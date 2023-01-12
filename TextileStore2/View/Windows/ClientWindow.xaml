@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TextileStore.View.Windows"
         mc:Ignorable="d"
-        Title="Окно клиента" Height="450" Width="930">
+        Title="Окно клиента" Height="450" Width="1050"
+        WindowStyle="ToolWindow">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="50"/>

@@ -1,4 +1,6 @@
-﻿using System.Windows.Media;
+﻿using System;
+
+using System.Windows.Media;
 using TextileStore2.Models.Entities;
 
 namespace TextileStore2.Models
@@ -11,10 +13,9 @@ namespace TextileStore2.Models
         public string ProductName { get; set; }
         public string ProductDescription { get; set; }
         public string ProductManufacturer { get; set; }
-
+        public  string Img { get; set; }
         public string ProductCost { get; set; }
         public string ProductStatus { get; set; }
-
         public string BackGround { get; set; }
         public static ProductModel ProductFromDB(ProductListForManagerAndClient context)
         {
@@ -23,12 +24,12 @@ namespace TextileStore2.Models
                 _color = Colors.LightGray;
             }
             else _color = Colors.White;
-
+            
             return new ProductModel()
             {
-                ImagePath = string.IsNullOrWhiteSpace(context.ProductPhoto)
-                ? "pack://application:,,,/TextileStore2/bin/Debug/Images/picture.png" :
-                "pack://application:,,,/Assets/Images/" + context.ProductPhoto,
+                Img = string.IsNullOrWhiteSpace(context.ProductPhoto)
+                ? "/bin/Debug/Images/picture.png" :
+                "/bin/Debug/Images/" + context.ProductPhoto,
                 ProductName = context.ProductName,
                 ProductDescription = context.ProductDescription,
                 ProductManufacturer = context.ManufacterValue,
