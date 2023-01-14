@@ -150,6 +150,16 @@
     <Property Name="RoleName" Type="nvarchar" MaxLength="100" Nullable="false" />
   </EntityType>
   <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Trade.dbo.OrderHasProduct" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="OrderHasProduct">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductArticleNumber" />
+    </Key>
+    <Property Name="OrderID" Type="int" Nullable="false" />
+    <Property Name="ProductArticleNumber" Type="nvarchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
 предупреждение 6002: В таблице или представлении "Trade.dbo.ProductListForManagerAndClient" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
   <EntityType Name="ProductListForManagerAndClient">
     <Key>
@@ -418,6 +428,12 @@
     [isNotDeletedUsers].[UserPassword] AS [UserPassword], 
     [isNotDeletedUsers].[RoleName] AS [RoleName]
     FROM [dbo].[isNotDeletedUsers] AS [isNotDeletedUsers]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="OrderHasProduct" EntityType="Self.OrderHasProduct" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [OrderHasProduct].[OrderID] AS [OrderID], 
+    [OrderHasProduct].[ProductArticleNumber] AS [ProductArticleNumber]
+    FROM [dbo].[OrderHasProduct] AS [OrderHasProduct]</DefiningQuery>
     </EntitySet>
     <EntitySet Name="ProductListForManagerAndClient" EntityType="Self.ProductListForManagerAndClient" store:Type="Views" store:Schema="dbo">
       <DefiningQuery>SELECT 

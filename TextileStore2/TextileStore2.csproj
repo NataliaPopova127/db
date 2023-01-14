@@ -88,6 +88,9 @@
     <Compile Include="Models\Entities\Order.cs">
       <DependentUpon>EntityContext.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Entities\OrderHasProduct.cs">
+      <DependentUpon>EntityContext.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Entities\OrderPickupPoint.cs">
       <DependentUpon>EntityContext.tt</DependentUpon>
     </Compile>
@@ -228,13 +231,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="bin\Debug\Images\1000-6a644ce227955c852ec2d27c78fda96e.jpg" />
-    <Resource Include="bin\Debug\Images\andrei-chizh-priroda-leto-podmoskove-reka-berega-derevia-tum.jpg" />
     <Resource Include="bin\Debug\Images\B111C5.jpeg" />
-    <Resource Include="bin\Debug\Images\BackImageMountains.jpg" />
     <Resource Include="bin\Debug\Images\E112C6.jpg" />
     <Resource Include="bin\Debug\Images\icon.ico" />
-    <Resource Include="bin\Debug\Images\interer-komnata-kvartira-2943.jpg" />
     <Resource Include="bin\Debug\Images\K839K3.jpg" />
     <Resource Include="bin\Debug\Images\L293S9.jpg" />
     <Resource Include="bin\Debug\Images\logo.png" />
@@ -246,7 +245,6 @@
     <Resource Include="bin\Debug\Images\rWpcq5iI6IA.jpg" />
     <Resource Include="bin\Debug\Images\S384K2.jpg" />
     <Resource Include="bin\Debug\Images\T238C7.jpg" />
-    <Resource Include="bin\Debug\Images\хзфон.jpg" />
     <Content Include="Models\Entities\EntityContext.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>EntityContext.edmx</DependentUpon>

@@ -41,6 +41,7 @@ namespace TextileStore2.Models.Entities
         public virtual DbSet<ProductProvider> ProductProvider { get; set; }
         public virtual DbSet<ProductUnit> ProductUnit { get; set; }
         public virtual DbSet<ProductListForManagerAndClient> ProductListForManagerAndClient { get; set; }
+        public virtual DbSet<OrderHasProduct> OrderHasProduct { get; set; }
     
         public virtual int AddUser(string userSurname, string userName, string userPatronymic, string userLogin, string userPassword, string userRole)
         {

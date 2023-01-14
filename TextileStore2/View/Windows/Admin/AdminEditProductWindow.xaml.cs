@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TextileStore.View.Windows;
 using TextileStore2.Core;
 using TextileStore2.Models.Entities;
 
@@ -138,18 +139,41 @@ namespace TextileStore2.View.Windows.Admin
             string destFile =
                 System.IO.Path.Combine("Images/", ImagePath);
             System.IO.File.Copy(openFileDialog.FileName, destFile, true);
-           
         }
+
 
         private void btnDeleteProduct_Click(object sender, RoutedEventArgs e)
         {
-            using (TradeEntities context = new TradeEntities())
+            try
             {
-                var product = context.Product.FirstOrDefault(p => p.ProductArticleNumber == tbArticul.Text);
-                context.Product.Remove(product);
-                context.SaveChanges();
-                MessageBox.Show("Запись удалена");
+                using (TradeEntities context = new TradeEntities())
+                {
+                    var product = context.Product.FirstOrDefault(p => 
+                                p.ProductArticleNumber == tbArticul.Text);
+                    var orderHasProduct = context.OrderHasProduct.FirstOrDefault(p =>
+                                p.ProductArticleNumber == tbArticul.Text);
+                    if (orderHasProduct == null)
+                    {
+                        context.Product.Remove(product);
+                        context.SaveChanges();
+                        MessageBox.Show("Запись удалена");
+                    }
+                    else
+                    {
+                        throw new Exception("Невозможно удалить товар. Товар находится в заказе");
+                    }
+                }
             }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            new AdminWindow().Show();
+            Close();
         }
     }
 }

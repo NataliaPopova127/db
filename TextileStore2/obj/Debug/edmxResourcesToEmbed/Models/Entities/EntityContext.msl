@@ -201,5 +201,13 @@
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="AddProduct" FunctionName="Хранилище TradeModel.AddProduct" />
     <FunctionImportMapping FunctionImportName="EditProduct" FunctionName="Хранилище TradeModel.EditProduct" />
+    <EntitySetMapping Name="OrderHasProduct">
+      <EntityTypeMapping TypeName="TradeModel.OrderHasProduct">
+        <MappingFragment StoreEntitySet="OrderHasProduct">
+          <ScalarProperty Name="ProductArticleNumber" ColumnName="ProductArticleNumber" />
+          <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

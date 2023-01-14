@@ -69,6 +69,10 @@ namespace TextileStore.View.Windows
                     }
                     else throw new Exception("Неизвестная роль");
                 }
+                else
+                {
+                    throw new Exception("Неверный логин или пароль");
+                }
             }
             catch (Exception ex)
             {

@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using TextileStore.View.Windows;
 using TextileStore2.Core;
 using TextileStore2.Models.Entities;
 
@@ -126,8 +127,13 @@ namespace TextileStore2.View.Windows.Admin
             string destFile =
                 System.IO.Path.Combine("Images/", ImagePath);
             System.IO.File.Copy(openFileDialog.FileName, destFile, true);
+        
 
-
+        }
+        private void btnMainWindow_Click(object sender, RoutedEventArgs e)
+        {
+            new AdminWindow().Show();
+            Close();
         }
     }
 }

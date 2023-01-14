@@ -300,6 +300,7 @@
       <Parameter Name="ProductProvider" Mode="In" Type="String" />
       <Parameter Name="IsDeleted" Mode="In" Type="Boolean" />
     </FunctionImport>
+    <EntitySet Name="OrderHasProduct" EntityType="TradeModel.OrderHasProduct" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -418,5 +419,13 @@
     <Property Name="ProductDiscountAmount" Type="Byte" />
     <Property Name="ProductMaxDiscountAmount" Type="Int32" />
     <Property Name="ProductQuantityInStock" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="OrderHasProduct">
+    <Key>
+      <PropertyRef Name="OrderID" />
+      <PropertyRef Name="ProductArticleNumber" />
+    </Key>
+    <Property Name="OrderID" Type="Int32" Nullable="false" />
+    <Property Name="ProductArticleNumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
   </EntityType>
 </Schema>

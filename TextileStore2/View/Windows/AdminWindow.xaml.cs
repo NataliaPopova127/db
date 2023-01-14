@@ -26,6 +26,7 @@ namespace TextileStore.View.Windows
     {
         public ObservableCollection<ProductModel> productModels = new ObservableCollection<ProductModel>();
         public int Count { get; set; }
+        public static bool isUpdate { get; set; }
         public AdminWindow()
         {
             InitializeComponent();
@@ -54,10 +55,11 @@ namespace TextileStore.View.Windows
             };
         }
 
-
+        
         private void btnAddProduct_Click(object sender, RoutedEventArgs e)
         {
             new AdminAddProductWindow().Show();
+            Close();
         }
 
         private void btnSignOut_Click(object sender, RoutedEventArgs e)
@@ -89,6 +91,7 @@ namespace TextileStore.View.Windows
                 }
             }
             new AdminEditProductWindow().Show();
+            Close();
         }
         private void cbOrderBy_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
